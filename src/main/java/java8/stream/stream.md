@@ -8,4 +8,17 @@
 5. 支持过滤聚合等
 
 ## 中间操作
-![avatar](./pics/middle-operations.PNG)
+
+过滤 filter
+去重 distinct
+排序 Sorted
+截取 1imit、 skip
+转换 map/flatMap
+其他 peek
+## 终止操作
+循环forEaCh
+计算min、max、 count、 average
+匹配 anyMatch、allMatch、 noneMatch、 findFirst、 findAny
+汇聚 reduce
+收集器 toArray collect
+
