@@ -20,3 +20,10 @@ java.lang.Runnable
 java.util.Comparator
 java.util.function.Predicate
 java.util.function.Consumer
+
+## 方法引用
+静态方法引用
+实例方法引用
+对象方法引用
+构造方法引用
+
