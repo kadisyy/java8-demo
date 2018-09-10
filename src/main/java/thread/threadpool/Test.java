@@ -16,6 +16,7 @@ public class Test {
              executor.getQueue().size()+"，已执行玩别的任务数目："+executor.getCompletedTaskCount());
          }
          executor.shutdown();
+
      }
 }
  
