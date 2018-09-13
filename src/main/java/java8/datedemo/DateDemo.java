@@ -20,7 +20,8 @@ public class DateDemo
          */
         LocalDate localDate = LocalDate.now();
 
+        System.out.println(localDate);
 
-
+        System.out.println("-2 = " + localDate.minusDays(2));
     }
 }
