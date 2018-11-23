@@ -1,6 +1,6 @@
 package java8.annntation;
 
-@Person(name="xingoo",age=25)
+@Person(name="xingoogg",age=25)
 public class test3 {
     public static void print(Class c){
         System.out.println(c.getName());
