@@ -2,10 +2,7 @@ package nio;
 
 import org.junit.Test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
@@ -108,4 +105,33 @@ public class ChannelTest {
         fo.close();
 
     }
+
+    // 分散（Scatter）和聚集（Gather）
+    // 1. 通道数据分散到各个缓冲区  2. 多个缓冲区的数据聚集到通道中
+    // 按顺序写满
+    @Test
+    public void test3() throws Exception {
+        RandomAccessFile file = new RandomAccessFile("1.txt", "rw");
+
+        FileChannel channel = file.getChannel();
+
+        ByteBuffer buffer1 = ByteBuffer.allocate(10);
+        ByteBuffer buffer2 = ByteBuffer.allocate(20);
+        ByteBuffer[] buffers = {buffer1, buffer2};
+        channel.read(buffers);
+
+        for(ByteBuffer b:buffers){
+            b.flip();
+        }
+
+        System.out.println(new String(buffers[0].array(),0,buffers[0].limit()));
+        System.out.println(new String(buffers[1].array(),0,buffers[1].limit()));
+
+        RandomAccessFile file1 = new RandomAccessFile("2.txt","rw");
+        FileChannel channel1 = file1.getChannel();
+        channel1.write(buffers);
+
+    }
+
 }
+
